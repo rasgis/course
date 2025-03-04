@@ -12,13 +12,13 @@ import { logout } from '../../../../actions';
 export const ControlPanel = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const roleId = useSelector(selectUserRole);
+	const role_id = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
 	const session = useSelector(selectUserSession);
 	return (
 		<div className="w-[120px]">
 			<div className="flex justify-end pb-2">
-				{roleId === ROLE.GUEST ? (
+				{role_id === ROLE.GUEST ? (
 					<Button>
 						<Link
 							className="border-2 border-black px-2  rounded-lg hover:border-indigo-400"

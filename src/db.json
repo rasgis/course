@@ -5,31 +5,31 @@
 			"login": "andrey",
 			"password": "123456",
 			"register_at": "2025-11-22",
-			"roleId": 0
+			"role_id": 0
 		},
 		{
 			"id": "002",
 			"login": "admin",
 			"password": "admin1",
 			"register_at": "2025-07-22",
-			"roleId": 0
+			"role_id": 0
 		}
 	],
 	"roles": [
 		{
-			"id": 0,
+			"id": "0",
 			"name": "Администратор"
 		},
 		{
-			"id": 1,
+			"id": "1",
 			"name": "Модератор"
 		},
 		{
-			"id": 2,
+			"id": "2",
 			"name": "Читатель"
 		},
 		{
-			"id": 3,
+			"id": "3",
 			"name": "Гость"
 		}
 	],

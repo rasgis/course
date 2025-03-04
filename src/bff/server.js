@@ -30,7 +30,7 @@ export const server = {
 				res: {
 					id: user.id,
 					login: user.login,
-					roleId: user.roleId,
+					role_id: user.role_id,
 					session: sessions.create(user),
 				},
 			};
@@ -51,15 +51,15 @@ export const server = {
 			};
 		}
 
-		await addUser(regLogin, regPassword);
+		const newUser = await addUser(regLogin, regPassword);
 
 		return {
 			error: null,
 			res: {
-				id: user.id,
-				login: user.login,
-				role_id: user.role_id,
-				session: sessions.create(user),
+				id: newUser.id,
+				login: newUser.login,
+				role_id: newUser.role_id,
+				session: sessions.create(newUser),
 			},
 		};
 	},
