@@ -33,7 +33,6 @@ export const ControlPanel = () => {
 						<Button
 							onClick={() => dispatch(logout(session))}
 							className="fa fa-sign-out"
-							aria-hidden="true"
 						/>
 					</>
 				)}
@@ -42,19 +41,16 @@ export const ControlPanel = () => {
 				<Button
 					onClick={() => navigate(-1)}
 					className="fa fa-backward"
-					aria-hidden="true"
 				></Button>
 
 				<Link
 					to="/post"
 					className="fa fa-file-text-o"
-					aria-hidden="true"
 				></Link>
 
 				<Link
 					to="/users"
 					className="fa fa-users"
-					aria-hidden="true"
 				></Link>
 			</div>
 		</div>

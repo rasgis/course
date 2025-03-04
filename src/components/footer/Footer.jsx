@@ -54,7 +54,7 @@ export const Footer = () => {
 									<span className="sr-only">Загрузка...</span>
 								</div>
 							) : (
-								<div>
+								<div className="">
 									{currentTime.toLocaleString('ru', {
 										day: '2-digit',
 										month: '2-digit',
@@ -66,7 +66,7 @@ export const Footer = () => {
 							)}
 						</div>
 					</div>
-					<div className="text-base font-medium">
+					<div className="text-base font-medium w-[400px] text-end">
 						{temp} градусов, {weather}
 					</div>
 				</div>
