@@ -38,13 +38,16 @@ export const Users = () => {
 						</div>
 					</div>
 
-					{users.map(({ id: userId, login, register_at, role_id }) => (
+					{users.map(({ id, login, register_at, role_id }) => (
 						<UserRow
-							key={userId}
+							key={id}
+							id={id}
 							login={login}
 							register_at={register_at}
 							role_id={role_id}
-							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
+							roles={roles.filter(
+								({ id: roleId }) => Number(roleId) !== ROLE.GUEST,
+							)}
 						/>
 					))}
 				</div>

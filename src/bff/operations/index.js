@@ -3,3 +3,4 @@ export * from './logout';
 export * from './register';
 export * from './fetchUsers';
 export * from './fetchRoles';
+export * from './updateUserRole';

@@ -75,6 +75,7 @@ export const Authorization = () => {
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					className="space-y-4"
+					autoComplete="off"
 				>
 					<div>
 						<label

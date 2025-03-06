@@ -1,16 +1,23 @@
-import { useDispatch } from 'react-redux';
 import { Button } from '../../../../components';
 import { useState } from 'react';
+import { useServerRequest } from '../../../../hooks';
 
-export const UserRow = ({ login, register_at, role_id, roles }) => {
+export const UserRow = ({ id, login, register_at, role_id, roles }) => {
+	const [initialRoleId, setInitialRoleId] = useState(role_id);
 	const [selectedRoleId, setSelectedRoleId] = useState(role_id);
-	const dispatch = useDispatch();
+	const requestServer = useServerRequest();
 
 	const onRoleChange = ({ target }) => {
 		setSelectedRoleId(target.value);
 	};
 
-	const isSaveButtonDisabled = Number(selectedRoleId) === role_id;
+	const onRoleSave = (userId, newUserRoleId) => {
+		requestServer('updateUserRole', userId, newUserRoleId).then(() => {
+			setInitialRoleId(newUserRoleId);
+		});
+	};
+
+	const isSaveButtonDisabled = Number(selectedRoleId) === initialRoleId;
 
 	return (
 		<div className="relative flex items-center justify-between w-[700px] mx-auto my-2">
@@ -37,7 +44,7 @@ export const UserRow = ({ login, register_at, role_id, roles }) => {
 						className={`fa fa-floppy-o text-blue-500 hover:text-blue-700 ml-4 ${
 							isSaveButtonDisabled ? 'opacity-0' : ''
 						}`}
-						onClick={() => dispatch()} // TODO: add action
+						onClick={() => onRoleSave(id, selectedRoleId)}
 						disabled={isSaveButtonDisabled}
 						aria-label={`Сохранить роль ${login}`}
 					/>
@@ -46,7 +53,7 @@ export const UserRow = ({ login, register_at, role_id, roles }) => {
 			</div>
 			<Button
 				className="fa fa-trash-o text-red-500 hover:text-red-700 ml-4 "
-				onClick={() => dispatch()} // TODO: add action
+				onClick={() => {}} // TODO: add action
 				aria-label={`Удалить пользователя ${login}`}
 			/>
 		</div>
