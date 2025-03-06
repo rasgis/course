@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useServerRequest } from '../../hooks';
 import { UserRow } from './components';
 import { Content } from '../../components';
+import { ROLE } from '../../constants';
+
 export const Users = () => {
 	const [users, setUsers] = useState([]);
 	const [roles, setRoles] = useState([]);
@@ -42,7 +44,7 @@ export const Users = () => {
 							login={login}
 							register_at={register_at}
 							role_id={role_id}
-							roles={roles}
+							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
 						/>
 					))}
 				</div>
