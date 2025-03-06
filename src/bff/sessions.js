@@ -1,4 +1,4 @@
-export const sessions =  {
+export const sessions = {
 	list: {},
 	create(user) {
 		const hash = Math.random().toFixed(50);
@@ -10,5 +10,9 @@ export const sessions =  {
 	remove(hash) {
 		delete this.list[hash];
 	},
+	access(hash, accessRoles) {
+		const user = this.list[hash];
 
+		return !!user && accessRoles.includes(user.role_id);
+	},
 };

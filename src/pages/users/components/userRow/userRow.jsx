@@ -1,13 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../../components';
-import { ROLE } from '../../../../constants';
 
-export const UserRow = ({ login, register_at, role_id }) => {
+export const UserRow = ({ login, register_at, role_id, roles }) => {
 	const dispatch = useDispatch();
-	const roles = Object.keys(ROLE).map((key) => ({
-		id: key,
-		name: key,
-	}));
 
 	const handleRoleChange = (e) => {
 		console.log(e.target.value);

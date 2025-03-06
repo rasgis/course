@@ -3,16 +3,14 @@ import { Header, Footer } from './components';
 import { NotFound, Users } from './pages';
 import { Authorization, Registration } from './pages';
 
-const Content = ({ className, children }) => (
-	<main className={className}>{children}</main>
-);
+const Page = ({ className, children }) => <main className={className}>{children}</main>;
 
 export const App = () => {
 	return (
 		<div className="min-h-screen bg-gray-900 ">
 			<div className="max-w-[1000px] min-h-screen mx-auto flex flex-col">
 				<Header />
-				<Content className="flex-1 w-full ">
+				<Page className="flex-1 w-full ">
 					<div className="max-w-6xl mx-auto bg-teal-200 shadow-lg rounded-lg p-4 md:p-6 min-h-[calc(100vh-120px)] ">
 						<Routes>
 							<Route
@@ -63,7 +61,7 @@ export const App = () => {
 							/>
 						</Routes>
 					</div>
-				</Content>
+				</Page>
 				<Footer />
 			</div>
 		</div>
