@@ -8,6 +8,7 @@ export const Users = () => {
 	const [users, setUsers] = useState([]);
 	const [roles, setRoles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState();
+	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
@@ -21,7 +22,13 @@ export const Users = () => {
 				setRoles(rolesRes.res);
 			},
 		);
-	}, [requestServer]);
+	}, [requestServer, shouldUpdateUserList]);
+
+	const onUserRemove = (userId) => {
+		requestServer('removeUser', userId).then(() => {
+			setShouldUpdateUserList(!shouldUpdateUserList);
+		});
+	};
 
 	return (
 		<div className="flex flex-col items-center justify-center h-full pt-[130px]">
@@ -48,6 +55,7 @@ export const Users = () => {
 							roles={roles.filter(
 								({ id: roleId }) => Number(roleId) !== ROLE.GUEST,
 							)}
+							onUserRemove={() => onUserRemove(id)}
 						/>
 					))}
 				</div>

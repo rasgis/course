@@ -4,3 +4,4 @@ export * from './register';
 export * from './fetchUsers';
 export * from './fetchRoles';
 export * from './updateUserRole';
+export * from './removeUser';

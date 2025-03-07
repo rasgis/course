@@ -2,7 +2,7 @@ import { Button } from '../../../../components';
 import { useState } from 'react';
 import { useServerRequest } from '../../../../hooks';
 
-export const UserRow = ({ id, login, register_at, role_id, roles }) => {
+export const UserRow = ({ id, login, register_at, role_id, roles, onUserRemove }) => {
 	const [initialRoleId, setInitialRoleId] = useState(role_id);
 	const [selectedRoleId, setSelectedRoleId] = useState(role_id);
 	const requestServer = useServerRequest();
@@ -46,15 +46,13 @@ export const UserRow = ({ id, login, register_at, role_id, roles }) => {
 						}`}
 						onClick={() => onRoleSave(id, selectedRoleId)}
 						disabled={isSaveButtonDisabled}
-						aria-label={`Сохранить роль ${login}`}
 					/>
 					<div className="w-[14px] h-[16px]"></div>
 				</div>
 			</div>
 			<Button
 				className="fa fa-trash-o text-red-500 hover:text-red-700 ml-4 "
-				onClick={() => {}} // TODO: add action
-				aria-label={`Удалить пользователя ${login}`}
+				onClick={onUserRemove}
 			/>
 		</div>
 	);
