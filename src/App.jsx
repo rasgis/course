@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { NotFound, Users } from './pages';
-import { Authorization, Registration } from './pages';
+import { NotFound, Users, Post, Authorization, Registration } from './pages';
 
 const Page = ({ className, children }) => <main className={className}>{children}</main>;
 
@@ -36,14 +35,8 @@ export const App = () => {
 								element={<Users />}
 							/>
 							<Route
-								path="/post/:postId"
-								element={
-									<div className="flex justify-center items-center h-full pt-[130px]">
-										<h3 className="text-lg font-medium text-red-500">
-											Статьи
-										</h3>
-									</div>
-								}
+								path="/post/:id"
+								element={<Post />}
 							/>
 							<Route
 								path="/post"
