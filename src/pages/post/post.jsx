@@ -15,12 +15,14 @@ export const Post = () => {
 	useEffect(() => {
 		dispatch(loadPost(requestServer, params.id));
 	}, [requestServer, params.id, dispatch]);
-
 	return (
 		<div className=" min-h-screen mt-[120px]  ">
 			<div className=" w-full  bg-white shadow-lg rounded-lg overflow-hidden p-10">
 				<PostContent post={post} />
-				<Comments comments={post.comments} />
+				<Comments
+					comments={post.comments}
+					postId={post.id}
+				/>
 			</div>
 		</div>
 	);

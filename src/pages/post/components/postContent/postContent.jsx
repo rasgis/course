@@ -4,7 +4,7 @@ export const PostContent = ({ post }) => {
 	return (
 		<div className="">
 			<img
-				src={post.image_url}
+				src={post.image_url || 'image.jpg'}
 				alt={post.title}
 				className="w-[50%] max-w-[300px]  rounded-lg float-left mr-9 mb-2 "
 			/>

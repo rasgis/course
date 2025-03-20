@@ -5,3 +5,8 @@ export * from './getRoles';
 export * from './setUserRole';
 export * from './deleteUser';
 export * from './getPost';
+export * from './addComment';
+export * from './getComments';
+export * from './deleteSession';
+export * from './getSession';
+export * from './addSession';

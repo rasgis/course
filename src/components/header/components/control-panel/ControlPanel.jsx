@@ -15,6 +15,12 @@ export const ControlPanel = () => {
 	const role_id = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
 	const session = useSelector(selectUserSession);
+
+	const onLogout = () => {
+		dispatch(logout(session));
+		sessionStorage.removeItem('userData');
+	};
+
 	return (
 		<div className="w-[120px]">
 			<div className="flex justify-end pb-2">
@@ -31,7 +37,7 @@ export const ControlPanel = () => {
 					<>
 						<span className="mr-2">{login}</span>
 						<Button
-							onClick={() => dispatch(logout(session))}
+							onClick={onLogout}
 							className="fa fa-sign-out"
 						/>
 					</>

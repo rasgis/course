@@ -1,10 +1,31 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
 import { NotFound, Users, Post, Authorization, Registration } from './pages';
+import { useDispatch } from 'react-redux';
+import { setUser } from './actions';
+import { useLayoutEffect } from 'react';
 
 const Page = ({ className, children }) => <main className={className}>{children}</main>;
 
 export const App = () => {
+	const dispatch = useDispatch();
+	useLayoutEffect(() => {
+		const currentUserDataJSON = sessionStorage.getItem('userData');
+
+		if (!currentUserDataJSON) {
+			return;
+		}
+
+		const currentUserData = JSON.parse(currentUserDataJSON);
+
+		dispatch(
+			setUser({
+				...currentUserData,
+				roleId: Number(currentUserData.roleId),
+			}),
+		); //! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Number
+	}, [dispatch]);
+
 	return (
 		<div className="min-h-screen bg-gray-900 ">
 			<div className="max-w-[1000px] min-h-screen mx-auto flex flex-col">
