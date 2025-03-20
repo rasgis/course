@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeComment } from '../../../../../../actions';
+import { removeComment, openModal, CLOSE_MODAL } from '../../../../../../actions';
 import { useServerRequest } from '../../../../../../hooks';
 import { Button } from '../../../../../../components';
 
@@ -7,7 +7,16 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 	const onCommentRemove = (id) => {
-		dispatch(removeComment(requestServer, postId, id));
+		dispatch(
+			openModal({
+				text: 'Вы действительно хотите удалить комментарий?',
+				onConfirm: () => {
+					dispatch(removeComment(requestServer, postId, id));
+					dispatch(CLOSE_MODAL);
+				},
+				onCancel: () => dispatch(CLOSE_MODAL),
+			}),
+		);
 	};
 
 	return (

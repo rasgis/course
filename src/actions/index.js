@@ -5,3 +5,5 @@ export * from './setPostData';
 export * from './loadPost';
 export * from './addComment';
 export * from './removeComment';
+export * from './openModal';
+export * from './closeModal';
