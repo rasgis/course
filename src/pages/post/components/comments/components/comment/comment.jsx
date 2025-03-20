@@ -1,6 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { removeComment } from '../../../../../../actions';
+import { useServerRequest } from '../../../../../../hooks';
 import { Button } from '../../../../../../components';
 
-export const Comment = ({ id, author, content, published_at }) => {
+export const Comment = ({ postId, id, author, published_at, content }) => {
+	const dispatch = useDispatch();
+	const requestServer = useServerRequest();
+	const onCommentRemove = (id) => {
+		dispatch(removeComment(requestServer, postId, id));
+	};
+
 	return (
 		<div className=" flex ">
 			<div className="mb-2 border-solid border-2 border-gray-300 shadow-sm  bg-white text-gray-700 p-2 rounded-md w-[100%] mx-auto">
@@ -16,7 +25,10 @@ export const Comment = ({ id, author, content, published_at }) => {
 				</div>
 				<div className="text-black text-left ml-2">{content}</div>
 			</div>
-			<Button className="fa fa-trash-o text-red-500 hover:text-red-700 ml-2 fa-lg" />
+			<Button
+				className="fa fa-trash-o text-red-500 hover:text-red-700 ml-2 fa-lg"
+				onClick={() => onCommentRemove(id)}
+			/>
 		</div>
 	);
 };

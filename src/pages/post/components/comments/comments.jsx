@@ -33,9 +33,11 @@ export const Comments = ({ comments, postId }) => {
 				/>
 			</div>
 			<div>
-				{comments.map(({ id, author, content, published_at }) => (
+				{comments?.map(({ id, author, content, published_at }) => (
 					<Comment
 						key={id}
+						postId={postId}
+						id={id}
 						author={author}
 						content={content}
 						published_at={published_at}

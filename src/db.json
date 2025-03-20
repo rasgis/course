@@ -56,69 +56,27 @@
       "published_at": "2025-01-11"
     }
   ],
-  "comment": [
+  "comments": [
     {
-      "id": "7455",
+      "id": "ceb9",
       "author_id": "001",
       "post_id": "002",
-      "published_at": "2025-03-19 14:27",
-      "content": "rthsrth"
+      "published_at": "2025-03-20 15:05",
+      "content": "sssss"
     },
     {
-      "id": "4fbb",
+      "id": "3236",
       "author_id": "001",
       "post_id": "002",
-      "published_at": "2025-03-19 14:31",
-      "content": "cghvncfn"
+      "published_at": "2025-03-20 15:13",
+      "content": "scsadcccd"
     },
     {
-      "id": "0bf2",
+      "id": "1c17",
       "author_id": "001",
       "post_id": "002",
-      "published_at": "2025-03-19 16:43",
-      "content": "fthrtfh"
-    },
-    {
-      "id": "3b4e",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2025-03-19 16:58",
-      "content": "fthrtfh"
-    },
-    {
-      "id": "9870",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2025-03-19 16:58",
-      "content": "fthrtfh"
-    },
-    {
-      "id": "e36a",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2025-03-19 16:58",
-      "content": "fthrtfh"
-    },
-    {
-      "id": "7103",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2025-03-19 17:25",
-      "content": " qwasdqd"
-    },
-    {
-      "id": "635d",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2025-03-20 10:04",
-      "content": "acscacascascascacascascac"
-    },
-    {
-      "id": "6553",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2025-03-20 10:06",
-      "content": "acscacascascascacascascac"
+      "published_at": "2025-03-20 16:03",
+      "content": "QSqs"
     }
   ],
   "sessions": [
@@ -136,6 +94,17 @@
     {
       "id": "55b6",
       "hash": "0.91737709372487508119320409605279564857482910156250",
+      "user": {
+        "id": "001",
+        "login": "andrey",
+        "password": "123456",
+        "register_at": "2025-11-22",
+        "role_id": 0
+      }
+    },
+    {
+      "id": "7c40",
+      "hash": "0.67640770273926209554815613955724984407424926757813",
       "user": {
         "id": "001",
         "login": "andrey",

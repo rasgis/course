@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Header, Footer } from './components';
+import { Header, Footer, Modal } from './components';
 import { NotFound, Users, Post, Authorization, Registration } from './pages';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
@@ -77,6 +77,7 @@ export const App = () => {
 					</div>
 				</Page>
 				<Footer />
+				<Modal />
 			</div>
 		</div>
 	);

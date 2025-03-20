@@ -3,3 +3,7 @@ export * from './selectUserLogin';
 export * from './selectUserSession';
 export * from './selectPost';
 export * from './selectUserId';
+export * from './selectModalIsOpen';
+export * from './selectModalText';
+export * from './selectModdalOnConfirm';
+export * from './selectModalOnCancel';

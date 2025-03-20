@@ -4,3 +4,4 @@ export * from './logout';
 export * from './setPostData';
 export * from './loadPost';
 export * from './addComment';
+export * from './removeComment';
