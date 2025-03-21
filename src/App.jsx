@@ -60,6 +60,10 @@ export const App = () => {
 								element={<Post />}
 							/>
 							<Route
+								path="/post/:id/edit"
+								element={<Post />}
+							/>
+							<Route
 								path="/post"
 								element={
 									<div className="flex justify-center items-center h-full pt-[130px]">

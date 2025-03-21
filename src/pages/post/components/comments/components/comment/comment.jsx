@@ -21,7 +21,7 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 
 	return (
 		<div className=" flex ">
-			<div className="mb-2 border-solid border-2 border-gray-300 shadow-sm  bg-white text-gray-700 p-2 rounded-md w-[100%] mx-auto">
+			<div className="mb-2 border-solid border-2 border-gray-300 shadow-sm hover:border-blue-500  bg-white text-gray-700 p-2 rounded-md w-[100%] mx-auto">
 				<div className="flex justify-between ">
 					<div className="flex justify-between">
 						<Button className="fa fa-user-circle-o text-blue-500 hover:text-blue-700 mx-2 " />
