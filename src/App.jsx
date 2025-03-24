@@ -56,14 +56,6 @@ export const App = () => {
 								element={<Users />}
 							/>
 							<Route
-								path="/post/:id"
-								element={<Post />}
-							/>
-							<Route
-								path="/post/:id/edit"
-								element={<Post />}
-							/>
-							<Route
 								path="/post"
 								element={
 									<div className="flex justify-center items-center h-full pt-[130px]">
@@ -72,6 +64,14 @@ export const App = () => {
 										</h3>
 									</div>
 								}
+							/>
+							<Route
+								path="/post/:id"
+								element={<Post />}
+							/>
+							<Route
+								path="/post/:id/edit"
+								element={<Post />}
 							/>
 							<Route
 								path="*"

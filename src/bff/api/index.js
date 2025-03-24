@@ -11,3 +11,4 @@ export * from './deleteSession';
 export * from './getSession';
 export * from './addSession';
 export * from './deleteComment';
+export * from './updatePost';
