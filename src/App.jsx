@@ -57,13 +57,7 @@ export const App = () => {
 							/>
 							<Route
 								path="/post"
-								element={
-									<div className="flex justify-center items-center h-full pt-[130px]">
-										<h3 className="text-lg font-medium text-indigo-500">
-											Новая Статья
-										</h3>
-									</div>
-								}
+								element={<Post />}
 							/>
 							<Route
 								path="/post/:id"

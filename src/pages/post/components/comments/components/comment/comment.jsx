@@ -24,11 +24,11 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 			<div className="mb-2 border-solid border-2 border-gray-300 shadow-sm hover:border-blue-500  bg-white text-gray-700 p-2 rounded-md w-[100%] mx-auto">
 				<div className="flex justify-between ">
 					<div className="flex justify-between">
-						<Button className="fa fa-user-circle-o text-blue-500 hover:text-blue-700 mx-2 " />
+						<Button className="fa fa-user-circle-o text-blue-500  mx-2 cursor-default" />
 						{author}
 					</div>
 					<div className="flex justify-between ">
-						<Button className="fa fa-calendar-o text-blue-500 hover:text-blue-700 mr-2 " />
+						<Button className="fa fa-calendar-o text-blue-500  mr-2 cursor-default" />
 						{published_at}
 					</div>
 				</div>

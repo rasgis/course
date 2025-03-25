@@ -14,6 +14,7 @@ export const PostContent = ({ post, post: { id, image_url, title, content } }) =
 
 			<h2 className=" text-black text-left mb-2 font-bold text-[24px]">{title}</h2>
 			<SpecialPanel
+				id={id}
 				post={post}
 				editButton={
 					<Button

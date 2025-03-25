@@ -1,25 +1,33 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useMatch } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { useServerRequest } from '../../hooks';
 import { PostContent, PostForm, Comments } from './components';
-import { loadPost } from '../../actions';
+import { loadPost, RESET_POST_DATA } from '../../actions';
 import { selectPost } from '../../selectors';
 
 export const Post = () => {
 	const dispatch = useDispatch();
 	const params = useParams();
 	const isEditing = useMatch('/post/:id/edit');
+	const isCreating = useMatch('/post');
 	const requestServer = useServerRequest();
 	const post = useSelector(selectPost);
 
+	useLayoutEffect(() => {
+		dispatch(RESET_POST_DATA);
+	}, [dispatch, isCreating]);
+
 	useEffect(() => {
+		if (isCreating) {
+			return;
+		}
 		dispatch(loadPost(requestServer, params.id));
-	}, [requestServer, params.id, dispatch]);
+	}, [requestServer, params.id, dispatch, isCreating]);
 	return (
 		<div className=" min-h-screen mt-[120px]  ">
 			<div className=" w-full  bg-white shadow-lg rounded-lg overflow-hidden p-10">
-				{isEditing ? (
+				{isCreating || isEditing ? (
 					<PostForm post={post} />
 				) : (
 					<>

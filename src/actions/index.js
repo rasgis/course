@@ -8,3 +8,5 @@ export * from './removeComment';
 export * from './openModal';
 export * from './closeModal';
 export * from './savePost';
+export * from './removePost';
+export * from './resetPostData';
