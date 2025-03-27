@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header, Footer, Modal } from './components';
-import { NotFound, Users, Post, Authorization, Registration } from './pages';
+import { NotFound, Users, Post, Authorization, Registration, Main } from './pages';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
 import { useLayoutEffect } from 'react';
@@ -35,13 +35,7 @@ export const App = () => {
 						<Routes>
 							<Route
 								path="/"
-								element={
-									<div className="flex justify-center items-center h-full w-full pt-[130px]">
-										<h3 className="text-2xl font-medium text-blue-500 text-center ">
-											Главная страница
-										</h3>
-									</div>
-								}
+								element={<Main />}
 							/>
 							<Route
 								path="/login"
