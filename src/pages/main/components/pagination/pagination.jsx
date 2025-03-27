@@ -1,6 +1,6 @@
 import { Button } from '../../../../components';
 
-export const Pagination = ({ page, setPage }) => {
+export const Pagination = ({ page, lastPage, setPage }) => {
 	return (
 		<div className="flex justify-center items-center mt-6 space-x-3">
 			<Button
@@ -24,6 +24,7 @@ export const Pagination = ({ page, setPage }) => {
 			</div>
 
 			<Button
+				disabled={page === lastPage}
 				onClick={() => {
 					setPage(page + 1);
 				}}
@@ -33,7 +34,8 @@ export const Pagination = ({ page, setPage }) => {
 			</Button>
 
 			<Button
-				onClick={() => setPage(1)}
+				disabled={page === lastPage}
+				onClick={() => setPage(lastPage)}
 				className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg shadow-md transition disabled:opacity-50 disabled:cursor-default disabled:hover:bg-gray-200"
 			>
 				В конец ⏭
