@@ -2,7 +2,7 @@ import { Button } from '../../../../components';
 
 export const Pagination = ({ page, lastPage, setPage }) => {
 	return (
-		<div className="flex justify-center items-center mt-6 space-x-3">
+		<div className="flex justify-center items-center absolute  space-x-3 bottom-36 w-[100%] left-[50%] translate-x-[-50%]">
 			<Button
 				disabled={page === 1}
 				onClick={() => setPage(1)}

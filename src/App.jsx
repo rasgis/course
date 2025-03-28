@@ -28,7 +28,7 @@ export const App = () => {
 
 	return (
 		<div className="min-h-screen bg-gray-900 ">
-			<div className="max-w-[1000px] min-h-screen mx-auto flex flex-col">
+			<div className="max-w-[1000px] min-h-screen mx-auto flex flex-col relative">
 				<Header />
 				<Page className="flex-1 w-full ">
 					<div className="max-w-6xl mx-auto bg-teal-200 shadow-lg rounded-lg p-4 md:p-6 min-h-[calc(100vh-120px)] ">
