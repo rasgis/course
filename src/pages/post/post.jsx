@@ -5,7 +5,7 @@ import { useServerRequest } from '../../hooks';
 import { PostContent, PostForm, Comments } from './components';
 import { Error, Content } from '../../components';
 import { loadPost, RESET_POST_DATA } from '../../actions';
-import { selectPost } from '../../selectors';
+import { selectPost, selectUserRole } from '../../selectors';
 import { ROLE } from '../../constants';
 
 export const Post = () => {
@@ -54,6 +54,7 @@ export const Post = () => {
 				<div className="bg-white shadow-lg rounded-lg p-6 max-w-3xl w-full">
 					<PostContent post={post} />
 					<hr className="my-6 border-t border-gray-300" />
+
 					<Comments
 						comments={post.comments}
 						postId={post.id}

@@ -8,6 +8,7 @@ import {
 	selectUserSession,
 } from '../../../../selectors';
 import { logout } from '../../../../actions';
+import { checkAccess } from '../../../../utils';
 
 export const ControlPanel = () => {
 	const navigate = useNavigate();
@@ -20,6 +21,8 @@ export const ControlPanel = () => {
 		dispatch(logout(session));
 		sessionStorage.removeItem('userData');
 	};
+
+	const isAdmin = checkAccess([ROLE.ADMIN], role_id);
 
 	return (
 		<div className="w-[120px]">
@@ -49,15 +52,19 @@ export const ControlPanel = () => {
 					className="fa fa-backward"
 				></Button>
 
-				<Link
-					to="/post"
-					className="fa fa-file-text-o"
-				></Link>
+				{isAdmin && (
+					<>
+						<Link
+							to="/post"
+							className="fa fa-file-text-o"
+						></Link>
 
-				<Link
-					to="/users"
-					className="fa fa-users"
-				></Link>
+						<Link
+							to="/users"
+							className="fa fa-users"
+						></Link>
+					</>
+				)}
 			</div>
 		</div>
 	);

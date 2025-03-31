@@ -1,11 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { removeComment, openModal, CLOSE_MODAL } from '../../../../../../actions';
 import { useServerRequest } from '../../../../../../hooks';
+import { useSelector } from 'react-redux';
+import { selectUserRole } from '../../../../../../selectors';
 import { Button } from '../../../../../../components';
+import { ROLE } from '../../../../../../constants';
 
 export const Comment = ({ postId, id, author, published_at, content }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
+	const userRole = useSelector(selectUserRole);
 	const onCommentRemove = (id) => {
 		dispatch(
 			openModal({
@@ -18,6 +22,9 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 			}),
 		);
 	};
+
+	const isAdminOrModerator = [ROLE.ADMIN, ROLE.MODERATOR].includes(userRole);
+	console.log(userRole);
 
 	return (
 		<div className=" flex ">
@@ -34,10 +41,12 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 				</div>
 				<div className="text-black text-left ml-2">{content}</div>
 			</div>
-			<Button
-				className="fa fa-trash-o text-red-500 hover:text-red-700 ml-2 fa-lg"
-				onClick={() => onCommentRemove(id)}
-			/>
+			{isAdminOrModerator && (
+				<Button
+					className="fa fa-trash-o text-red-500 hover:text-red-700 ml-2 fa-lg"
+					onClick={() => onCommentRemove(id)}
+				/>
+			)}
 		</div>
 	);
 };
