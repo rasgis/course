@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import { Header, Footer, Modal } from './components';
-import { NotFound, Users, Post, Authorization, Registration, Main } from './pages';
+import { Header, Footer, Modal, Error } from './components';
+import { Users, Post, Authorization, Registration, Main } from './pages';
+import { ERROR } from './constants';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
 import { useLayoutEffect } from 'react';
@@ -23,7 +24,7 @@ export const App = () => {
 				...currentUserData,
 				roleId: Number(currentUserData.roleId),
 			}),
-		); //! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Number
+		);
 	}, [dispatch]);
 
 	return (
@@ -63,7 +64,7 @@ export const App = () => {
 							/>
 							<Route
 								path="*"
-								element={<NotFound />}
+								element={<Error error={ERROR.PAGE_NOT_EXIST} />}
 							/>
 						</Routes>
 					</div>

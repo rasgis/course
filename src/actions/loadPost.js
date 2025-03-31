@@ -1,7 +1,9 @@
 import { setPostData } from './setPostData';
 
-export const loadPost = (requestServer, id) => (dispatch) => {
+export const loadPost = (requestServer, id) => (dispatch) =>
 	requestServer('fetchPost', id).then((postData) => {
-		dispatch(setPostData(postData.res));
+		if (postData.res) {
+			dispatch(setPostData(postData.res));
+		}
+		return postData;
 	});
-};
