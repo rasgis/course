@@ -1,11 +1,9 @@
-export const Button = ({ children, className, ...props }) => {
-	return (
-		<button
-			className={className}
-			{...props}
-		>
-			{' '}
-			{children}
-		</button>
-	);
+import PropTypes from 'prop-types';
+
+export const Button = ({ children, ...props }) => {
+	return <button {...props}> {children}</button>;
+};
+
+Button.propTypes = {
+	children: PropTypes.node.isRequired,
 };

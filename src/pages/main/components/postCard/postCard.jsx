@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../../components';
 
@@ -31,4 +32,12 @@ export const PostCard = ({ id, title, image_url, published_at, commentsCount }) 
 			</Link>
 		</div>
 	);
+};
+
+PostCard.propTypes = {
+	id: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	image_url: PropTypes.string.isRequired,
+	published_at: PropTypes.string.isRequired,
+	commentsCount: PropTypes.number.isRequired,
 };

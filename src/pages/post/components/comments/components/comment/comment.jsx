@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeComment, openModal, CLOSE_MODAL } from '../../../../../../actions';
 import { useServerRequest } from '../../../../../../hooks';
@@ -24,7 +25,6 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 	};
 
 	const isAdminOrModerator = [ROLE.ADMIN, ROLE.MODERATOR].includes(userRole);
-	console.log(userRole);
 
 	return (
 		<div className=" flex ">
@@ -49,4 +49,12 @@ export const Comment = ({ postId, id, author, published_at, content }) => {
 			)}
 		</div>
 	);
+};
+
+Comment.propTypes = {
+	postId: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	published_at: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
 };

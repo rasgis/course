@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Button, Input } from '../../../../components';
 
 export const Search = ({ searchPhrase, onChange }) => {
@@ -16,4 +17,9 @@ export const Search = ({ searchPhrase, onChange }) => {
 			</div>
 		</div>
 	);
+};
+
+Search.propTypes = {
+	searchPhrase: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
 };

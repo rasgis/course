@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
 import { Header, Footer, Modal, Error } from './components';
 import { Users, Post, Authorization, Registration, Main } from './pages';
@@ -6,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
 import { useLayoutEffect } from 'react';
 
-const Page = ({ className, children }) => <main className={className}>{children}</main>;
+const Page = ({ children }) => <main>{children}</main>;
 
 export const App = () => {
 	const dispatch = useDispatch();
@@ -74,4 +75,8 @@ export const App = () => {
 			</div>
 		</div>
 	);
+};
+
+Page.propTypes = {
+	children: PropTypes.node,
 };

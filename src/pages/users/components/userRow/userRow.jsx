@@ -1,11 +1,16 @@
+import PropTypes from 'prop-types';
 import { Button } from '../../../../components';
 import { useState } from 'react';
 import { useServerRequest } from '../../../../hooks';
+import { PROP_TYPE } from '../../../../constants';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../../../actions';
 
 export const UserRow = ({ id, login, register_at, role_id, roles, onUserRemove }) => {
 	const [initialRoleId, setInitialRoleId] = useState(role_id);
 	const [selectedRoleId, setSelectedRoleId] = useState(role_id);
 	const requestServer = useServerRequest();
+	const dispatch = useDispatch();
 
 	const onRoleChange = ({ target }) => {
 		setSelectedRoleId(target.value);
@@ -13,8 +18,23 @@ export const UserRow = ({ id, login, register_at, role_id, roles, onUserRemove }
 
 	const onRoleSave = (userId, newUserRoleId) => {
 		requestServer('updateUserRole', userId, newUserRoleId).then(() => {
-			setInitialRoleId(newUserRoleId);
+			const newRoleId = Number(newUserRoleId);
+			setInitialRoleId(newRoleId);
+			setSelectedRoleId(newRoleId);
 		});
+	};
+
+	const handleDelete = () => {
+		dispatch(
+			openModal({
+				text: `Вы действительно хотите удалить пользователя ${login}?`,
+				onConfirm: () => {
+					onUserRemove();
+					dispatch({ type: 'CLOSE_MODAL' });
+				},
+				onCancel: () => dispatch({ type: 'CLOSE_MODAL' }),
+			}),
+		);
 	};
 
 	const isSaveButtonDisabled = Number(selectedRoleId) === initialRoleId;
@@ -52,8 +72,17 @@ export const UserRow = ({ id, login, register_at, role_id, roles, onUserRemove }
 			</div>
 			<Button
 				className="fa fa-trash-o text-red-500 hover:text-red-700 ml-4 "
-				onClick={onUserRemove}
+				onClick={handleDelete}
 			/>
 		</div>
 	);
+};
+
+UserRow.propTypes = {
+	id: PropTypes.string.isRequired,
+	login: PropTypes.string.isRequired,
+	register_at: PropTypes.stringisRequired,
+	role_id: PROP_TYPE.ROLE.isRequired,
+	roles: PropTypes.arrayOf(PROP_TYPE.ROLE).isRequired,
+	onUserRemove: PropTypes.func.isRequired,
 };

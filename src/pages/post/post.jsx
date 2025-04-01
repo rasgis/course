@@ -5,7 +5,7 @@ import { useServerRequest } from '../../hooks';
 import { PostContent, PostForm, Comments } from './components';
 import { Error, Content } from '../../components';
 import { loadPost, RESET_POST_DATA } from '../../actions';
-import { selectPost, selectUserRole } from '../../selectors';
+import { selectPost } from '../../selectors';
 import { ROLE } from '../../constants';
 
 export const Post = () => {

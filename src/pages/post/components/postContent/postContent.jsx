@@ -1,6 +1,7 @@
 import { Button } from '../../../../components';
 import { SpecialPanel } from '../specialPanel/specialPanel';
 import { useNavigate } from 'react-router-dom';
+import { PROP_TYPE } from '../../../../constants';
 
 export const PostContent = ({ post, post: { id, image_url, title, content } }) => {
 	const navigate = useNavigate();
@@ -27,4 +28,8 @@ export const PostContent = ({ post, post: { id, image_url, title, content } }) =
 			<div className=" text-black text-left whitespace-pre-line">{content}</div>
 		</div>
 	);
+};
+
+PostContent.propTypes = {
+	post: PROP_TYPE.POST.isRequired,
 };

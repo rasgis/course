@@ -6,6 +6,7 @@ import { SpecialPanel } from '../specialPanel/specialPanel';
 import { sanitizeContent } from './utils';
 import { useServerRequest } from '../../../../hooks';
 import { savePost } from '../../../../actions';
+import { PROP_TYPE } from '../../../../constants';
 
 export const PostForm = ({ post, post: { id, image_url, title, content } }) => {
 	const [imageUrlValue, setImageUrlValue] = useState(image_url);
@@ -75,4 +76,8 @@ export const PostForm = ({ post, post: { id, image_url, title, content } }) => {
 			</div>
 		</div>
 	);
+};
+
+PostForm.propTypes = {
+	post: PROP_TYPE.POST.isRequired,
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../../components';
@@ -54,4 +55,12 @@ export const SpecialPanel = ({ post: { id, published_at }, editButton }) => {
 			</div>
 		</>
 	);
+};
+
+SpecialPanel.propTypes = {
+	post: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		published_at: PropTypes.string.isRequired,
+	}),
+	editButton: PropTypes.node.isRequired,
 };
